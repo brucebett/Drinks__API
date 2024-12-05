@@ -25,5 +25,19 @@ def drink_list(request):
         
 
 @api_view(['GET', 'PUT', 'DELETE'])
+def drink_detail(request, id):
+
+try:
+    drink = Drink.objects.get(pk=id)
+except Drink.DoesNotExist:
+    return Response(status=status.HTTP_404_NOT_FOUND)
+
+if request.method == 'GET':
+    serializer = DrinkSerializer(drink)
+    return Response(serializer.data)
+elif request.method == 'PUT':
+    pass
+elif request.method == 'DELETE':
+    pass
 
  
