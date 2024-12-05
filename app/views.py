@@ -22,4 +22,8 @@ def drink_list(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
 
+@api_view(['GET', 'PUT', 'DELETE'])
+
+ 
