@@ -8,7 +8,7 @@ from rest_framework import status
 
 # Create your views here.
 @api_view(['GET', 'POST'])
-def drink_list(request):
+def drink_list(request, format=None):
 
     if request.method == 'GET':
         drinks = Drink.objects.all()
@@ -25,7 +25,7 @@ def drink_list(request):
         
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def drink_detail(request, id):
+def drink_detail(request, id, format=None):
 
     try:
          drink = Drink.objects.get(pk=id)
